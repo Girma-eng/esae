@@ -228,6 +228,7 @@
           color: #2d6a4f !important;
         font-weight: 400;
         font-size: 1.2rem !important;
+         margin-bottom: 12px;
        
 	        }
         
@@ -353,6 +354,156 @@
             max-width: 700px;
             margin: 0 auto 30px;
         }
+
+
+
+        /* News and Events Section */
+.news-section {
+    background-color: var(--white);
+    padding: 60px 0;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.news-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.news-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.news-card:hover .news-image img {
+    transform: scale(1.05);
+}
+
+.news-content {
+    padding: 25px;
+}
+
+.news-date {
+    color: var(--primary);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.news-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary-dark);
+    line-height: 1.4;
+}
+
+.news-content p {
+    color: var(--text-light);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.news-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s;
+}
+
+.news-link:hover {
+    color: var(--primary-dark);
+}
+
+/* Partners Section */
+.partners-section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+    align-items: center;
+}
+
+.partner-logo {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    transition: all 0.3s ease;
+}
+
+.partner-logo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.partner-logo img {
+    max-width: 100%;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+.news-events-btn {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .partner-logo {
+        padding: 15px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .partners-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
         /* Contact Section */
         .contact-container {
@@ -1376,7 +1527,101 @@
             </div>
         </div>
     </section>
-
+    <!-- News and Events Section -->
+    <section class="news-section" id="news">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest News & Events</h2>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="image_file/photo_2.jpg" alt="Annual Conference">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">
+                            <i class="far fa-calendar"></i>
+                            Date
+                        </div>
+                        <h3>Annual Agricultural Engineering Conference ???</h3>
+                         <a href="#" class="news-link">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="image_file/photo_3.jpg" alt="Workshop">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">
+                            <i class="far fa-calendar"></i>
+                            Date
+                        </div>
+                        <h3>Precision Agriculture Workshop</h3>
+                        <a href="#" class="news-link">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="news-card">
+                    <div class="news-image">
+                        <img src="image_file/photo_4.jpg" alt="Research Collaboration">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">
+                            <i class="far fa-calendar"></i>
+                            Date
+                        </div>
+                        <h3>New Research Partnership Announced</h3>
+                        <a href="#" class="news-link">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="news-events-btn">
+                <a href="#" class="btn btn-primary">View All News & Events</a>
+            </div>
+        </div>
+    </section>
+        <!-- Partners Section -->
+    <section class="partners-section" id="partners">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Partners</h2>
+            </div>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--text-light);">
+                We collaborate with leading organizations, academic institutions, and industry partners to advance agricultural engineering in Ethiopia.
+            </p>
+            
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <img src="image_file/eiar_logo.jpg" alt="EIAR">
+                </div>
+                 <div class="partner-logo">
+                    <img src="image_file/moa_logo.jpg" alt="MoA">
+                </div>
+                <div class="partner-logo">
+                    <img src="image_file/ati_logo.jpg" alt="ATI">
+                </div>
+                
+               
+                
+                <div class="partner-logo">
+                    <img src="https://www.fao.org/images/fao-logo-0.svg" alt="????">
+                </div>
+                
+            
+                <div class="partner-logo">
+                    <img src="https://www.ifad.org/documents/38714170/39724654/ifad-logo-colour.svg" alt="????">
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Events Section -->
     <section id="events">
         <div class="container">
@@ -1392,7 +1637,7 @@
                     <div class="event-info">
                         <h3>Annual Conference 2025</h3>
                         <p>Join us for our flagship event featuring keynote speakers, technical sessions, and networking opportunities.</p>
-                        <a href="registration.html" class="btn">Register Now</a>
+                        <a href="#" class="btn">Register Now</a>
                        
                     </div>
                 </div>
@@ -1422,7 +1667,7 @@
         </div>
     </section>
 
-       <!-- Innovative Solutions Section -->
+       <!-- Membership -->
     <section class="innovative-container">
         <section class="innovative-solutions">
             <div class="innovative-title">
@@ -1504,9 +1749,8 @@
             
          
            
+        </section>
     </section>
-</section>
-
     <!-- Membership Section -->
     <section class="membership" id="membership">
         <div class="container">
@@ -1550,25 +1794,29 @@
 
         <!-- Position 2 -->
         <div class="gallery-item">
-            <img src="image_file/photo_3.jpg" class="gallery-image active" data-caption="Demonstration">
-            <img src="image_file/photo_4.jpg" class="gallery-image" data-caption="Demonstration">
-            <img src="image_file/photo_5.jpg" class="gallery-image" data-caption="Demonstration">
-            <img src="image_file/photo_3.jpg" class="gallery-image" data-caption="Demonstration">
-            <img src="image_file/photo_1.jpg" class="gallery-image" data-caption="Demonstration">
+            <img src="image_file/photo_3.jpg" class="gallery-image active" data-caption="">
+            <img src="image_file/photo_4.jpg" class="gallery-image" data-caption="">
+            <img src="image_file/photo_5.jpg" class="gallery-image" data-caption="">
+            <img src="image_file/photo_3.jpg" class="gallery-image" data-caption="">
+            <img src="image_file/photo_1.jpg" class="gallery-image" data-caption="">
             <div class="gallery-caption">second</div>
         </div>
 
+      
         <!-- Position 3 -->
+          <!--
         <div class="gallery-item">
-            <img src="image_file/tractor_2.jpg" class="gallery-image active" data-caption="Partnership">
-            <img src="image_file/tractor_spraying.jpg" class="gallery-image" data-caption="Partnership">
-            <img src="image_file/tractor_3.jpg" class="gallery-image" data-caption="Partnership">
-            <img src="image_file/tractor_spraying.jpg" class="gallery-image" data-caption="Partnership">
-            <img src="image_file/photo_1.jpg" class="gallery-image" data-caption="Partnership">
+            <img src="image_file/tractor_2.jpg" class="gallery-image active" data-caption="">
+            <img src="image_file/tractor_spraying.jpg" class="gallery-image" data-caption="">
+            <img src="image_file/tractor_3.jpg" class="gallery-image" data-caption="">
+            <img src="image_file/tractor_spraying.jpg" class="gallery-image" data-caption="">
+            <img src="image_file/photo_1.jpg" class="gallery-image" data-caption="???">
             <div class="gallery-caption">???</div>
         </div>
-
+-->
+        
         <!-- Position 4 -->
+          <!--
         <div class="gallery-item">
             <img src="image_file/tractor_2.jpg" class="gallery-image active" data-caption="Partnership">
             <img src="image_file/tractor_spraying.jpg" class="gallery-image" data-caption="Partnership">
@@ -1577,6 +1825,7 @@
             <img src="image_file/photo_1.jpg" class="gallery-image" data-caption="Partnership">
             <div class="gallery-caption">???</div>
         </div>
+        -->
     </div>
 </div>
 </section>
