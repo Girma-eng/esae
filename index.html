@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESAE - Ethiopian Society of Agricultural Engineers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-dark: #1B5E20;
+            --primary-light: #4CAF50;
+            --secondary: #FFC107;
+            --text-dark: #333;
+            --text-light: #666;
+            --background: #f9f9f9;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+   .menu-toggle {
+    display: none; /* Keep this for desktop */
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 101;
+    padding: 10px; /* Add some padding for better touch target */
+    margin-left: auto; /* Push it to the right */
+}
+
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--text-dark);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #ffb300;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Sections */
+        section {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+          .about-text p {
+          color: #2d6a4f !important;
+        font-weight: 400;
+        font-size: 1.2rem !important;
+       
+	        }
+        
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            background-color: var(--primary-light);
+            color: var(--white);
+            font-size: 2.5rem;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        /* Events Section */
+        .events-slider {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scrollbar-width: thin;
+        }
+
+        .event-card {
+            min-width: 300px;
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .event-date {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .event-date .day {
+            font-size: 2rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .event-date .month {
+            font-size: 1.2rem;
+        }
+
+        .event-info {
+            padding: 20px;
+        }
+
+        .event-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Membership Section */
+        .membership {
+            background-color: var(--primary-light);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .membership h2 {
+            color: var(--white);
+        }
+
+        .membership h2::after {
+            background-color: var(--secondary);
+        }
+
+        .membership p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 40px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-details {
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            background-color: var(--primary-light);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            color: var(--text-dark);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+          /* Hero Slider */
+       /* Hero Slider */
+        .hero-slider {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            color: white;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+
+        /* Main title positioned on the left */
+        .hero-title {
+            position: absolute;
+            top: 30%;
+            left: 10%;
+            color: white;
+            z-index: 3;
+            text-align: left;
+            max-width: 70%;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            pointer-events: auto;
+             margin-bottom: 30px; /* Increase this value as needed */
+          
+        }
+
+        .hero-title h1 {
+             font-size: 4.1rem;
+            margin-bottom: 20px;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            max-width: 95%;
+            line-height: 1.1;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        /* Subtitle positioned on the left with indentation */
+        .hero-subtitle {
+            position: absolute;
+            top: 55%;
+            left: 12%;
+            color: white;
+            text-align: left;
+            max-width: 45%;
+            font-size: 1.1rem;
+            z-index: 2;
+            line-height: 1.4;
+        }
+    /* Content Positioning */
+        .hero-2 {
+            position: absolute;
+            top: 50%;
+            left: 20%;
+            transform: translateY(-50%);
+            color: white;
+            z-index: 3;
+            width: 50%;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            pointer-events: auto;
+        }
+
+        .hero-2 h1 {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            max-width: 95%;
+            line-height: 1.1;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .secondary-title {
+         position: absolute;
+            top: 50%;
+            left: 10%;
+            color: white;
+            z-index: 3;
+            text-align: left;
+            max-width: 70%;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            pointer-events: auto;
+             margin-bottom: 30px; /* Increase this value as needed */
+        }
+             .secondary-title h1 {
+             font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            max-width: 95%;
+            line-height: 1.1;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+               .secondary-title h2 {
+             font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            max-width: 95%;
+            line-height: 1.1;
+            font-weight: 400;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+        /* Buttons positioned below subtitle */
+        .hero-buttons {
+            position: absolute;
+            top: 80%;
+            right: 12%;
+            z-index: 3;
+            display: flex;
+            gap: 15px;
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .slider-dot.active {
+            background: white;
+        }
+        
+        .slider-arrows {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 10;
+        }
+        
+        .slider-arrow {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .slider-arrow:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+ /* Welcome Message */
+        .welcome-message {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .welcome-container {
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 10px 5% 10px;
+        }
+    .welcome-message h1 {
+            color: #2d6a4f;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 15px;
+         
+            letter-spacing: 2px;
+            width: 100%;
+        }
+        .welcome-message h2 {
+            color: #2d6a4f;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            width: 100%;
+        }
+
+        .welcome-message p {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            max-width: 100%;
+        }
+        
+        .decorative-line {
+            width: 80px;
+            height: 3px;
+            background-color: #d90429;
+            margin: 0 auto 30px;
+        }
+
+
+ /* membership benefit Section */
+        .innovative-solutions {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            border-radius: 12px;
+            padding: 40px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .solution-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 10px;
+            padding: 15px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+            border-top: 25px solid green;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .solution-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .solution-icon {
+            font-size: 2.0rem;
+            color: greenyellow;
+            margin-bottom: 1px;
+            text-align: center;
+        }
+        
+        .solution-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .solution-card p {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .solution-stats {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .stat-badge {
+            background: var(--light);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: green;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .stat-badge i {
+            font-size: 0.7rem;
+        }
+        
+
+   .highlight {
+        color: orange !important;
+        font-weight: 700;
+        font-size: 1.6rem !important;
+	
+    }
+   .highlight-2 {
+        color: orange !important;
+        font-weight: 700;
+        font-size: 2.8rem !important;
+	
+    }
+
+   .highlight-text {
+        color: #2d6a4f !important;
+        font-weight: 600;
+        font-size: 1.2rem !important;
+	
+    }
+         /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            text-align: center;
+            background: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid var(--light);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .member-info h3 {
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+        
+        .member-info p {
+            color: var(--gray);
+            font-style: italic;
+        }
+
+
+
+
+
+        
+
+/*<!--===// CSS: Seeing is Believing Section:Start
+	==============================================================================-->*/
+
+
+
+   .gallery-section {
+        padding: 20px;
+        margin: 0 auto;
+        max-width: 90%;
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 4 columns for desktop */
+        gap: 20px; /* Space between items */
+    }
+
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-image {
+        width: 100%;
+        height: auto;
+        display: none; /* Hide all images by default */
+    }
+
+    .gallery-image.active {
+        display: block; /* Show only the active image */
+    }
+
+    .gallery-caption {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+        .gallery-grid {
+            grid-template-columns: 1fr; /* Single column for mobile */
+        }
+
+        .gallery-item {
+            margin-bottom: 20px; /* Add space between items */
+        }
+    }
+
+
+
+
+
+ /* Responsive Design */
+ @media (max-width: 768px) {
+   .hero-title {
+            position: absolute;
+            top: 35%;
+            left: 5%;
+            color: white;
+            z-index: 3;
+            text-align: left;
+            max-width: 95%;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            pointer-events: auto;
+             margin-bottom: 30px; /* Increase this value as needed */
+          
+        }
+
+        .hero-title h1 {
+             font-size: 2.1rem;
+            margin-bottom: 20px;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            max-width: 98%;
+            line-height: 1.1;
+            margin-bottom: 40px;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+           .hero-title h2 {
+             font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            max-width: 95%;
+            line-height: 1.1;
+            font-weight: 400;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        /* Subtitle positioned on the left with indentation */
+        .hero-subtitle {
+            position: absolute;
+            top: 55%;
+            left: 12%;
+            color: white;
+            text-align: left;
+            max-width: 75%;
+            font-size: 1.1rem;
+            z-index: 2;
+            line-height: 1.4;
+        }
+    /* Content Positioning */
+        .hero-2 {
+            position: absolute;
+            top: 50%;
+            left: 20%;
+            transform: translateY(-50%);
+            color: white;
+            z-index: 3;
+            width: 50%;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            pointer-events: auto;
+        }
+
+        .hero-2 h1 {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            max-width: 95%;
+            line-height: 1.1;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .secondary-title {
+         position: absolute;
+            top: 50%;
+            left: 5%;
+            color: white;
+            z-index: 3;
+            text-align: left;
+            max-width: 98%;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            pointer-events: auto;
+             margin-bottom: 30px; /* Increase this value as needed */
+        }
+             .secondary-title h1 {
+             font-size: 1.6rem;
+            margin-bottom: 20px;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            max-width: 95%;
+            line-height: 1.1;
+            font-weight: 500;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+             .secondary-title h2 {
+             font-size: 1.2rem;
+            margin-bottom: 5px;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            max-width: 95%;
+            line-height: 1.0;
+            font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+          .slider-arrows {
+            position: absolute;
+            top: 25%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 10;
+        }
+        
+    }
+ 
+           @media (max-width: 768px) {
+               .welcome-container {
+            max-width: 96%;
+            margin: 0 auto;
+            padding: 10px 5% 10px;
+        }
+            .welcome-message {
+                padding: 25px 0;
+            }
+               .welcome-message h1 {
+                font-size: 1.7rem;
+            }
+            .welcome-message h2 {
+                font-size: 1.6rem;
+            }
+            
+
+            .welcome-message p {
+                font-size: 1rem;
+            }
+              .highlight {
+                font-size: 1.2rem !important;
+            }
+                   .highlight-2 {
+                font-size: 1.5rem !important;
+            }
+            .highlight-text {
+                font-size: 1rem !important;
+            }
+        }
+
+
+           /* Mobile Innovative Solutions */
+        @media (max-width: 768px) {
+            .innovative-solutions {
+                padding: 50px 20px;
+                background-attachment: scroll;
+            }
+            
+            .solutions-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-top: 30px;
+            }
+            
+            .solution-card {
+                padding: 15px;
+            }
+            
+            .solution-card h3 {
+                font-size: 1.3rem;
+            }
+        }
+       
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+              <img src="image_file/logo_esae.jpg" alt="Logo" class="logo-img">
+              </div>
+            <nav>
+                   <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="about_us.html">About</a></li>
+                    <li><a href="publication.html">Publications</a></li>
+                    
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="login.html" class="login-btn">Login</a></li>
+                 
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+      <section id="heroTop" class="hero-slider">
+      <!-- Slide 1: general -->
+         <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+            <div class="hero-title">
+                 <h1>Ethiopian Society of Agricultural Engineers</h1>
+                 <h2 >Promoting excellence in agricultural engineering through <span class="highlight"> innovation, education, and collaboration</span>for sustainable development in Ethiopia.</h2>
+              </div>
+           
+            <div class="hero-buttons">
+               <button class="btn btn-primary">Join Our Society</button>
+                <button class="btn btn-outline" style="color: white; border-color: white;">Know More</button>
+        </div>
+        </div>
+         <!-- Slide 2: Mechanization -->
+<div class="slide " style="background-image: url('image_file/tractor_spraying.jpg');">
+    <div class="secondary-title">
+        <h1> Building Capacity in <span class="highlight-2">Agricultural Machinery Engineering</span></h1>
+        <h2>Building capacity in farm machinery design, operation, and maintenance for increased productivity</h2>
+    </div>
+    <div class="hero-buttons">
+      
+        <button class="btn btn-outline" style="color: white; border-color: white;">Learn More</button>
+    </div>
+</div>
+
+<!-- Slide 3: Post-Harvest -->
+<div class="slide" style="background-image: url('image_file/post_harvest.jpg');">
+    <div class="secondary-title">
+        <h1 >Building Capacity in <span class="highlight-2">Post-Harvest Engineering</span></h1>
+        <h2 >Enhancing professional knowledge in storage, processing, and food preservation technologies</h2>
+    </div>
+     <div class="hero-buttons">
+        <button class="btn btn-outline" style="color: white; border-color: white;">Learn More</button>
+    </div>
+</div>
+
+<!-- Slide 3: Irrigation -->
+<div class="slide" style="background-image: url('image_file/irrigation.jpg');">
+    <div class="secondary-title">
+        <h1 >Advancing <span class="highlight-2">Irrigation Engineering </span>Practices</h1>
+        <h2 >Professional development and knowledge exchange in sustainable water management</h2>
+    </div>
+    
+    <div class="hero-buttons">
+        <button class="btn btn-outline" style="color: white; border-color: white;">Learn More</button>
+    </div>
+</div>
+
+
+<!-- Slide 4: Precision Agriculture & Digital Solutions -->
+<div class="slide" style="background-image: url('https://images.unsplash.com/photo-1560493676-04071c5f467b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+      <div class="secondary-title">
+        <h1 >Empowering Farmers with <span class="highlight-2">Precision Agriculture</span></h1>
+           <h2>Helping in the implementation of digital solutions and smart farming technologies for sustainable agriculture</h2>
+    </div>
+  
+    <div class="hero-buttons">
+        <button class="btn btn-outline" style="color: white; border-color: white;">Learn More</button>
+    </div>
+</div>>
+        
+        <!-- Slider navigation  -->
+        <div class="slider-nav">
+            <div class="slider-dot active" data-slide="0"></div>
+            <div class="slider-dot" data-slide="1"></div>
+            <div class="slider-dot" data-slide="2"></div>
+        </div>
+        
+        <div class="slider-arrows">
+            <div class="slider-arrow prev">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="slider-arrow next">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+    </section>
+
+
+
+      <section class="welcome-message">
+        <div class="welcome-container">
+            <h1> 
+                <span style="color: green; letter-spacing: 1px;">Welcome to the</span>
+                <span style=" color: orange; letter-spacing: -1.5px;">ESAE</span>
+                <span style=" color: green; letter-spacing: -1px;">website</span>
+            </h1>
+           
+            <div class="decorative-line"></div>
+            <p class="highlight-text">
+                The Ethiopian Society of Agricultural Engineers is dedicated to promoting agricultural innovation and sustainability in Ethiopia. Our main gaol is to drive progress in farming practices, machinery design, and environmental conservation through collaboration, research, and education. 
+                We envision a future where agricultural engineering plays a pivotal role in enhancing food security, increasing productivity, and ensuring environmental stewardship in Ethiopia. 
+                Join us in shaping a more sustainable and prosperous agricultural sector for the benefit of our nation. </p>
+               <h2 style="font-size: 0.9rem; font-style: italic;" >Join us in reshaping Ethiopian agriculture for a more productive and food-secure future.</h2>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About ESAE</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Mission and Vision</h3>
+                    <p>The Ethiopian Society of Agricultural Engineers (ESAE) is a professional organization dedicated to advancing the field of agricultural engineering in Ethiopia. Our mission is to advance the profession of agricultural engineering in Ethiopia through promotion of sustainable practices, technological innovation, knowledge sharing, and professional development that enhances food security, agricultural productivity, and environmental stewardship.</p>
+                    <p>Founded in 2021, ESAE has grown to become the leading voice for agricultural engineers in Ethiopia, with over 100 members from academia, industry, and government sectors.</p>
+                    <p>We work to enhance food security, improve agricultural productivity, and promote environmentally sustainable practices through the application of engineering principles and technologies.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Agricultural Engineering in Ethiopia">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Professional Development</h3>
+                        <p>We offer workshops, training programs, and certification courses to help agricultural engineers stay current with the latest technologies and practices.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Networking Opportunities</h3>
+                        <p>Connect with fellow professionals, researchers, and industry leaders through our conferences, seminars, and online platforms.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Publications & Resources</h3>
+                        <p>Access our journal, technical papers, and research findings to stay informed about the latest developments in agricultural engineering.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events">
+        <div class="container">
+            <div class="section-title">
+                <h2>Upcoming Events</h2>
+            </div>
+            <div class="events-slider">
+                <div class="event-card">
+                    <div class="event-date">
+                        <div class="day">29</div>
+                        <div class="month">NoV</div>
+                    </div>
+                    <div class="event-info">
+                        <h3>Annual Conference 2025</h3>
+                        <p>Join us for our flagship event featuring keynote speakers, technical sessions, and networking opportunities.</p>
+                        <a href="registration.html" class="btn">Register Now</a>
+                       
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <div class="day">??</div>
+                        <div class="month">October(placeholder)</div>
+                    </div>
+                     <div class="event-info">
+                        <h3>Annual Conference 2025</h3>
+                        <p>Join us for our flagship event featuring keynote speakers, technical sessions, and networking opportunities.</p>
+                        <a href="#" class="btn">Register Now</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <div class="day">12</div>
+                        <div class="month">November</div>
+                    </div>
+                      <div class="event-info">
+                        <h3>Annual Conference 2025</h3>
+                        <p>Join us for our flagship event featuring keynote speakers, technical sessions, and networking opportunities.</p>
+                        <a href="#" class="btn">Register Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+       <!-- Innovative Solutions Section -->
+    <section class="innovative-container">
+        <section class="innovative-solutions">
+            <div class="innovative-title">
+                <div class="section-title">
+                <h2 style="color: white;">Membership Benefits and Activities</h2>
+            </div>
+              
+                <div class="divider"></div>
+                            <p style="color: white;">
+                            The Ethiopian Society of Agricultural Engineers (ESAE) offers a wealth of opportunities for agricultural engineering professionals in Ethiopia.   
+                        </p>
+            </div>
+            
+  <div class="solutions-grid">
+            <!-- Card 1 -->
+           <div class="solution-card">
+                <div class="solution-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                    <p style="font-size: 0.9rem;">
+                        As a member, you'll gain access to a vibrant network of colleagues, participate in cutting-edge research and development, and benefit from numerous professional development opportunities.  
+                            </p>
+              
+            </div>
+            <!-- Card 2 -->
+         
+            <div class="solution-card">
+                <div class="solution-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                
+                <p style="font-size: 0.9rem;">
+                  Our annual national conferences provide a platform to share your work, learn from experts, and connect with leaders in the field.
+             </p>
+                
+            </div>
+            
+            
+            <!-- Card 3 -->
+          
+            <div class="solution-card">
+                <div class="solution-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                
+                <p style="font-size: 0.9rem;">
+                  We regularly organize workshops and training sessions on the latest technologies and techniques, ensuring that our members remain at the forefront of the profession.  
+    </p>
+             
+            </div>
+        </div>
+        
+        <div class="solutions-grid">
+            <!-- Card 4 -->
+            <div class="solution-card">
+                <div class="solution-icon">
+                    <i class="fas fa-coins"></i>
+                </div>
+                
+                <p style="font-size: 0.9rem;">
+                   The ESAE also actively engages in advocacy, working to promote policies that support sustainable agricultural practices.  
+                </p>
+              
+            </div>
+            
+            <!-- Card 5 -->
+            <div class="solution-card">
+                <div class="solution-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+               
+                <p style="font-size: 0.9rem;">
+                  Membership provides access to exclusive resources, including publications, newsletters, and online forums, facilitating collaboration and knowledge sharing among our diverse membership. 
+ </p>
+               
+            </div>
+            </div>
+        
+            
+         
+           
+    </section>
+</section>
+
+    <!-- Membership Section -->
+    <section class="membership" id="membership">
+        <div class="container">
+            <div class="section-title">
+                <h2>Become a Member</h2>
+            </div>
+            <p>Join the Ethiopian Society of Agricultural Engineers to access exclusive resources, networking opportunities, and professional development programs. Our membership is open to students, professionals, and organizations involved in agricultural engineering.</p>
+            <a href="registration.html" class="btn">Join Now</a>
+             
+        </div>
+    </section>
+
+ 
+
+    
+
+
+    <!--===// Gallery
+	===================================================================================-->
+
+
+
+
+   <section class="section">
+<div class="gallery-section">
+<div class="text-center mb-5">
+                
+		<h2 class="display-4 text-center mb-5">Gallery</h2>
+            </div>
+  
+    <div class="gallery-grid">
+        <!-- Position 1 -->
+        <div class="gallery-item">
+            <img src="image_file/irrigation.jpg" class="gallery-image active" data-caption="Field Trial">
+            <img src="image_file/tractor_spraying.jpg" class="gallery-image" data-caption="Field Trial">
+            <img src="image_file/post_harvest.jpg" class="gallery-image" data-caption="Field Trial">
+            <img src="image_file/photo_1.jpg" class="gallery-image" data-caption="Field Trial">
+            <img src="image_file/photo_2.jpg" class="gallery-image" data-caption="Field Trial">
+            <div class="gallery-caption">???</div>
+        </div>
+
+        <!-- Position 2 -->
+        <div class="gallery-item">
+            <img src="image_file/photo_3.jpg" class="gallery-image active" data-caption="Demonstration">
+            <img src="image_file/photo_4.jpg" class="gallery-image" data-caption="Demonstration">
+            <img src="image_file/photo_5.jpg" class="gallery-image" data-caption="Demonstration">
+            <img src="image_file/photo_3.jpg" class="gallery-image" data-caption="Demonstration">
+            <img src="image_file/photo_1.jpg" class="gallery-image" data-caption="Demonstration">
+            <div class="gallery-caption">second</div>
+        </div>
+
+        <!-- Position 3 -->
+        <div class="gallery-item">
+            <img src="image_file/tractor_2.jpg" class="gallery-image active" data-caption="Partnership">
+            <img src="image_file/tractor_spraying.jpg" class="gallery-image" data-caption="Partnership">
+            <img src="image_file/tractor_3.jpg" class="gallery-image" data-caption="Partnership">
+            <img src="image_file/tractor_spraying.jpg" class="gallery-image" data-caption="Partnership">
+            <img src="image_file/photo_1.jpg" class="gallery-image" data-caption="Partnership">
+            <div class="gallery-caption">???</div>
+        </div>
+
+        <!-- Position 4 -->
+        <div class="gallery-item">
+            <img src="image_file/tractor_2.jpg" class="gallery-image active" data-caption="Partnership">
+            <img src="image_file/tractor_spraying.jpg" class="gallery-image" data-caption="Partnership">
+            <img src="image_file/tractor_3.jpg" class="gallery-image" data-caption="Partnership">
+            <img src="image_file/tractor_spraying.jpg" class="gallery-image" data-caption="Partnership">
+            <img src="image_file/photo_1.jpg" class="gallery-image" data-caption="Partnership">
+            <div class="gallery-caption">???</div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>We'd love to hear from you. Reach out to us with any questions, comments, or inquiries.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Address</h4>
+                                <p>Addis Ababa, Ethiopia</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+251 9???</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>esae.add@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ESAE</h3>
+                    <p>The Ethiopian Society of Agricultural Engineers is dedicated to advancing the profession and practice of agricultural engineering in Ethiopia.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="about_us.html">About Us</a></li>
+                        <li><a href="publication.html">Publications</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#membership">Membership</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Publications</a></li>
+                        <li><a href="#">Research Papers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to receive updates on events and news.</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Ethiopian Society of Agricultural Engineers. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Smooth scrolling for navigation links
+       document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+
+        // Allow normal navigation for real pages
+        if (!targetId.startsWith('#')) {
+            return; 
+        }
+
+        // Block default only for scrolling links
+        e.preventDefault();
+
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+
+        document.querySelector('nav ul').classList.remove('show');
+    });
+});
+
+  </script>
+       <script>
+  
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (mainNav && mainNav.classList.contains('active') && 
+                !mainNav.contains(event.target) && 
+                !menuToggle.contains(event.target)) {
+                mainNav.classList.remove('active');
+            }
+        });
+        
+        // Hero Slider
+        function initHeroSlider(sliderId) {
+            const slider = document.querySelector(`#${sliderId}`);
+            if (!slider) return;
+            
+            const slides = slider.querySelectorAll('.slide');
+            const dots = slider.querySelectorAll('.slider-dot');
+            const prevArrow = slider.querySelector('.slider-arrow.prev');
+            const nextArrow = slider.querySelector('.slider-arrow.next');
+            
+            if (slides.length === 0) return;
+            
+            let currentSlide = 0;
+            let slideInterval;
+
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+
+                if (n >= slides.length) currentSlide = 0;
+                else if (n < 0) currentSlide = slides.length - 1;
+                else currentSlide = n;
+
+                slides[currentSlide].classList.add('active');
+                if (dots[currentSlide]) {
+                    dots[currentSlide].classList.add('active');
+                }
+            }
+
+            function nextSlide() { showSlide(currentSlide + 1); }
+            function prevSlide() { showSlide(currentSlide - 1); }
+
+            if (nextArrow) nextArrow.addEventListener('click', nextSlide);
+            if (prevArrow) prevArrow.addEventListener('click', prevSlide);
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => showSlide(parseInt(dot.getAttribute('data-slide'))));
+            });
+
+            function startSlideShow() { slideInterval = setInterval(nextSlide, 5000); }
+            function stopSlideShow() { clearInterval(slideInterval); }
+
+            slider.addEventListener('mouseenter', stopSlideShow);
+            slider.addEventListener('mouseleave', startSlideShow);
+            startSlideShow();
+        }
+
+        // Initialize hero slider
+        initHeroSlider('heroTop');
+
+        // App Screens Slider
+        function createSlider_1(config) {
+            document.addEventListener('DOMContentLoaded', function() {
+                const {
+                    slideSelector = '.app-slide',
+                    dotSelector = '.app-slider-dot',
+                    prevBtnSelector = '.app-slider-arrow.prev',
+                    nextBtnSelector = '.app-slider-arrow.next',
+                    screenImgIds = [],
+                    containerSelector = '.app-slider-container',
+                    images = [],
+                    autoSlideInterval = 5000
+                } = config;
+
+                const appSlides = document.querySelectorAll(slideSelector);
+                const appDots = document.querySelectorAll(dotSelector);
+                const appPrevBtn = document.querySelector(prevBtnSelector);
+                const appNextBtn = document.querySelector(nextBtnSelector);
+                
+                // Get all screen images
+                const appScreenImgs = screenImgIds.map(id => document.getElementById(id));
+                
+                if (appSlides.length === 0) return;
+                
+                let currentAppSlide = 0;
+                let appInterval;
+
+                function showAppSlide(index) {
+                    appSlides.forEach(slide => slide.classList.remove('active'));
+                    appDots.forEach(dot => dot.classList.remove('active'));
+                    
+                    currentAppSlide = index;
+                    
+                    appSlides[currentAppSlide].classList.add('active');
+                    appDots[currentAppSlide].classList.add('active');
+                    
+                    // Update all screen images
+                    appScreenImgs.forEach((img, imgIndex) => {
+                        if (img && images[imgIndex] && images[imgIndex][currentAppSlide]) {
+                            img.src = images[imgIndex][currentAppSlide];
+                        }
+                    });
+                }
+
+                function nextAppSlide() {
+                    let nextIndex = currentAppSlide + 1;
+                    if (nextIndex >= appSlides.length) nextIndex = 0;
+                    showAppSlide(nextIndex);
+                }
+
+                function prevAppSlide() {
+                    let prevIndex = currentAppSlide - 1;
+                    if (prevIndex < 0) prevIndex = appSlides.length - 1;
+                    showAppSlide(prevIndex);
+                }
+
+                if (appNextBtn) appNextBtn.addEventListener('click', nextAppSlide);
+                if (appPrevBtn) appPrevBtn.addEventListener('click', prevAppSlide);
+                
+                appDots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => showAppSlide(index));
+                });
+
+                function startAppAutoSlide() {
+                    appInterval = setInterval(nextAppSlide, autoSlideInterval);
+                }
+
+                function stopAppAutoSlide() {
+                    clearInterval(appInterval);
+                }
+
+                const appContainer = document.querySelector(containerSelector);
+                if (appContainer) {
+                    appContainer.addEventListener('mouseenter', stopAppAutoSlide);
+                    appContainer.addEventListener('mouseleave', startAppAutoSlide);
+                }
+
+                showAppSlide(0);
+                startAppAutoSlide();
+            });
+        }
+
+        // Initialize app slider
+        createSlider_1({
+            slideSelector: '.app-slide-2',
+            dotSelector: '.app-slider-dot-2',
+            prevBtnSelector: '.app-slider-arrow-2.prev',
+            nextBtnSelector: '.app-slider-arrow-2.next',
+            screenImgIds: ['app-screen-img-1', 'app-screen-img-2', 'app-screen-img-3'],
+            containerSelector: '.app-slider-container-2',
+            images: [
+                // Image arrays for each phone mockup
+                [
+                   'image_file/app_2.jpg',
+                    'image_file/create_planning.jpg',
+                    'image_file/app_2.jpg',
+                    'image_file/app_2.jpg',
+                    'image_file/app_2.jpg'   
+                    
+                ],
+                [
+                   'image_file/ds_tablet_1.png',
+                    'image_file/planning_web.jpg',
+                    'image_file/ds_tablet_1.png',
+                    'image_file/app_2.jpg',
+                    'image_file/ds_2.jpg'   
+                   ],
+                [
+                  'image_file/app_1.jpg',
+                    'image_file/fields_page.jpg',
+                    'image_file/app_2.jpg',
+                    'image_file/app_2.jpg',
+                    'image_file/app_3.jpg'   
+                      ]
+            ],
+            autoSlideInterval: 5000
+        });
+    </script>
+      <!--===// Java: Gallary
+	===================================================================================-->
+
+ <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const galleryItems = document.querySelectorAll(".gallery-item");
+
+    galleryItems.forEach((item) => {
+        let images = item.querySelectorAll(".gallery-image");
+        let caption = item.querySelector(".gallery-caption");
+        let index = 0;
+
+        function showNextImage() {
+            images[index].classList.remove("active");
+            index = (index + 1) % images.length;
+            images[index].classList.add("active");
+            caption.textContent = images[index].dataset.caption;
+        }
+
+        setInterval(showNextImage, 3000); // Change image every 3 seconds
+    });
+});
+
+ </script>
+ <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+  const supabase = supabase.createClient(
+    'https://your-project.supabase.co',
+    'public-anon-key'
+  );
+
+  async function login() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password
+    });
+
+    if (error) {
+      alert("Login failed: " + error.message);
+    } else {
+      window.location.href = "members.html"; // protected page
+    }
+  }
+</script>
+
+</body>
+</html>
