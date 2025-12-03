@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - Ethiopian Society of Agricultural Engineers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2E7D32;
+            --primary-dark: #1B5E20;
+            --primary-light: #4CAF50;
+            --secondary: #FFC107;
+            --text-dark: #333;
+            --text-light: #666;
+            --background: #f9f9f9;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .publications-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .publications-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-family: 'Barlow Semi Condensed', sans-serif;
+            font-weight: 700;
+        }
+
+        .publications-hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        /* Publications Navigation */
+        .pub-nav {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            position: sticky;
+            top: 80px;
+            z-index: 999;
+        }
+
+        .pub-nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px 0;
+        }
+
+        .pub-nav-btn {
+            padding: 12px 25px;
+            background: transparent;
+            border: 2px solid #e0e0e0;
+            border-radius: 30px;
+            color: var(--text-dark);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .pub-nav-btn:hover, .pub-nav-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Publications Grid */
+        .publications-grid {
+            padding: 40px 0;
+        }
+
+        .pub-category {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .pub-category.active {
+            display: block;
+        }
+
+        .pub-items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .pub-item {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .pub-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .pub-cover {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .pub-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .pub-item:hover .pub-cover img {
+            transform: scale(1.05);
+        }
+
+        .pub-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
+            color: var(--text-dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pub-info {
+            padding: 25px;
+        }
+
+        .pub-category-tag {
+            display: inline-block;
+            background: rgba(46, 125, 50, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .pub-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            line-height: 1.4;
+        }
+
+        .pub-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .pub-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: var(--white);
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(to right, var(--primary-dark), #155c19);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(46, 125, 50, 0.05);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Search & Filter */
+        .search-filter {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .filter-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        /* Journal Section */
+        .journal-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(46, 125, 50, 0.05), rgba(46, 125, 50, 0.05));
+        }
+
+        .journal-info {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .journal-cover {
+            flex: 1;
+            max-width: 300px;
+            box-shadow: var(--shadow-lg);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .journal-cover img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .journal-details {
+            flex: 2;
+        }
+
+        .journal-details h3 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .journal-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        /* Call for Papers */
+        .cfp-section {
+            padding: 80px 0;
+        }
+
+        .cfp-card {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 50px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .cfp-card h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .deadline {
+            background: var(--secondary);
+            color: var(--text-dark);
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            margin: 20px 0;
+        }
+
+        /* Archive Section */
+        .archive-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(46, 125, 50, 0.05), rgba(46, 125, 50, 0.05));
+        }
+
+        .year-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .year-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .year-header {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            background: #f9f9f9;
+        }
+
+        .year-content {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+        }
+
+        .year-item.active .year-content {
+            padding: 0 30px 25px 30px;
+            max-height: 1000px;
+        }
+
+        .year-list {
+            list-style: none;
+        }
+
+        .year-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .year-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 40px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .journal-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .journal-cover {
+                max-width: 250px;
+            }
+            
+            .pub-items-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: var(--shadow);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .publications-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .pub-nav-container {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 10px;
+            }
+
+            .pub-nav-btn {
+                white-space: nowrap;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .filter-options {
+                flex-direction: column;
+            }
+
+            .pub-items-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .publications-hero {
+                padding: 70px 0;
+            }
+            
+            .cfp-card {
+                padding: 30px 20px;
+            }
+            
+            .journal-stats {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="image_file/logo_esae.jpg" alt="ESAE Logo" class="logo-img">
+                <div class="logo-text">
+                    <h1>ESAE</h1>
+                    <span>Ethiopian Society of Agricultural Engineers</span>
+                </div>
+            </div>
+            <nav>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about_us.html">About</a></li>
+                    <li><a href="publication.html" style="color: var(--primary); font-weight: 700;">Publications</a></li>
+                    <li><a href="membership.html">Membership</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="publications-hero">
+        <div class="container">
+            <h1>ESAE Publications</h1>
+            <p>Access the latest research, technical papers, and industry insights from Ethiopia's agricultural engineering community</p>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Search publications...">
+                <button class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Navigation -->
+    <nav class="pub-nav">
+        <div class="container pub-nav-container">
+           
+            <button class="pub-nav-btn active" data-category="conference">Conference Proceedings</button>
+            <button class="pub-nav-btn" data-category="technical">Technical Papers</button>
+            <button class="pub-nav-btn" data-category="reports">Research Reports</button>
+            <button class="pub-nav-btn" data-category="newsletters">Newsletters</button>
+            <button class="pub-nav-btn" data-category="books">Books & Monographs</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Search & Filter -->
+        <div class="search-filter">
+            <div class="filter-options">
+                <div class="filter-group">
+                    <label>Year</label>
+                    <select class="filter-select">
+                        <option value="all">All Years</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Category</label>
+                    <select class="filter-select">
+                        <option value="all">All Categories</option>
+                        <option value="mechanization">Agricultural Mechanization</option>
+                        <option value="irrigation">Irrigation Engineering</option>
+                        <option value="postharvest">Post-Harvest Engineering</option>
+                        <option value="soil">Soil & Water Engineering</option>
+                        <option value="precision">Precision Agriculture</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Access</label>
+                    <select class="filter-select">
+                        <option value="all">All Access</option>
+                        <option value="open">Open Access</option>
+                        <option value="member">Member Only</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- paper Section -->
+         
+    
+        <!-- Call for Papers -->
+        <section class="cfp-section">
+            <div class="cfp-card">
+                <h3>Call for Papers</h3>
+                <p>Submit your research for publication </p>
+                <div class="deadline">Submission Deadline:???</div>
+                <p>We invite original research, review articles, and case studies on all aspects of agricultural engineering relevant to Ethiopia and similar contexts.</p>
+                <a href="#" class="btn btn-primary" style="background: white; color: var(--primary); margin-top: 20px;">Submit Your Paper</a>
+            </div>
+        </section>
+
+        <!-- Archive -->
+        <section class="archive-section">
+            <div class="section-header">
+                <h2>Publication Archive</h2>
+                <p>Access our complete collection of publications from previous years</p>
+            </div>
+
+            <div class="year-accordion">
+                <div class="year-item">
+                    <div class="year-header">
+                        2024
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="year-content">
+                        <ul class="year-list">
+                           <li>exalple list</li>
+                            <li><a href="#">3rd National Conference Proceedings - 5 papers</a></li>
+                            <li><a href="#">Technical Paper Series 2024 - 8 papers</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="year-item">
+                    <div class="year-header">
+                        2023
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="year-content">
+                        <ul class="year-list">
+                            <li><a href="#">3rd National Conference Proceedings - 75 papers</a></li>
+                            <li><a href="#">Technical Paper Series 2024 - 8 papers</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="year-item">
+                    <div class="year-header">
+                        2022
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="year-content">
+                        <ul class="year-list">
+                             <li><a href="#">3rd National Conference Proceedings - 75 papers</a></li>
+                            <li><a href="#">Technical Paper Series 2024 - 8 papers</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ESAE Publications</h3>
+                    <p>Disseminating knowledge and advancing agricultural engineering research in Ethiopia through high-quality publications.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About ESAE</a></li>
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="publications.html">Publications</a></li>
+                        <li><a href="index.html#events">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>For Authors</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Submit Paper</a></li>
+                        <li><a href="#">Author Guidelines</a></li>
+                        <li><a href="#">Reviewer Resources</a></li>
+                        <li><a href="#">Publication Ethics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Editorial Team</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> editor@esae.org</li>
+                        <li><i class="fas fa-phone"></i> +251 9??? (Editorial Office)</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Ethiopian Society of Agricultural Engineers. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Publication Navigation
+        document.querySelectorAll('.pub-nav-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                
+                // Update active button
+                document.querySelectorAll('.pub-nav-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Show selected category
+                document.querySelectorAll('.pub-category').forEach(cat => {
+                    cat.classList.remove('active');
+                });
+                document.getElementById(category).classList.add('active');
+                
+                // Scroll to category
+                document.getElementById(category).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Search functionality
+        document.querySelector('.search-input').addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                searchPublications();
+            }
+        });
+
+        document.querySelector('.search-box .btn').addEventListener('click', searchPublications);
+
+        function searchPublications() {
+            const query = document.querySelector('.search-input').value.toLowerCase();
+            alert(`Searching for: "${query}"\n\nIn a real implementation, this would filter publications based on the search query.`);
+        }
+
+        // Year accordion
+        document.querySelectorAll('.year-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const item = this.parentElement;
+                item.classList.toggle('active');
+                
+                // Close other year items
+                document.querySelectorAll('.year-item').forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Filter functionality
+        document.querySelectorAll('.filter-select').forEach(select => {
+            select.addEventListener('change', function() {
+                const year = document.querySelector('select:nth-child(1)').value;
+                const category = document.querySelector('select:nth-child(2)').value;
+                const access = document.querySelector('select:nth-child(3)').value;
+                
+                console.log(`Filtering by: Year=${year}, Category=${category}, Access=${access}`);
+                // In real implementation, this would filter the publications
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav ul');
+            const menuToggle = document.querySelector('.mobile-menu');
+            
+            if (nav && nav.classList.contains('show') && 
+                !nav.contains(event.target) && 
+                !menuToggle.contains(event.target)) {
+                nav.classList.remove('show');
+            }
+        });
+
+        // Simulate loading more publications
+        document.querySelectorAll('.pub-category:not(#journal) .pub-items-grid').forEach(grid => {
+            for (let i = 0; i < 2; i++) {
+                const pubItem = document.createElement('div');
+                pubItem.className = 'pub-item';
+                pubItem.innerHTML = `
+                    <div class="pub-cover">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=${Math.random()}" alt="Publication">
+                        <div class="pub-badge">SAMPLE</div>
+                    </div>
+                    <div class="pub-info">
+                        <span class="pub-category-tag">Sample Category</span>
+                        <h3>Sample Publication Title</h3>
+                        <div class="pub-meta">
+                            <span><i class="fas fa-calendar"></i> 2024</span>
+                            <span><i class="fas fa-user"></i> Sample Author</span>
+                        </div>
+                        <p>This is a sample publication description that would be replaced with actual content.</p>
+                        <div class="pub-actions">
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(pubItem);
+            }
+        });
+    </script>
+</body>
+</html>
